@@ -1,0 +1,9 @@
+.card-fr {
+  flex-grow: 1;
+}
+
+@media (max-width: 767px) {
+  .card-fr {
+    margin-bottom: 20px;
+  }
+}

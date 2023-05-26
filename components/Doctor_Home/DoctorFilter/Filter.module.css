@@ -1,0 +1,10 @@
+.btn-yellw {
+  width: 100px !important; 
+  background-color: var(--yellowColor) !important;
+  color: #ffffff !important;
+}
+
+.btn {
+  border: 0;
+  border-radius: 30px;
+}

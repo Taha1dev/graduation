@@ -1,0 +1,23 @@
+.button-group-active {
+  width: 3rem;
+  color: #fff;
+  border-radius: 5px !important;
+  background-color: #0557AD !important;
+  border-color: transparent !important;
+}
+
+.btn {
+  width: 50px;
+  height: 41px;
+  border-radius: 30px;
+  text-align: center;
+  width: 3rem;
+  border-radius: 5px !important;
+  border-color: transparent !important;
+}
+
+.button-group,
+.btn-t {
+  background-color: #eeeeee !important;
+  color: #0557AD !important;
+}

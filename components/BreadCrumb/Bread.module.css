@@ -1,0 +1,26 @@
+.bread {
+  background-color: #eeeeee;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.bread-title {
+  color: #263A71;
+}
+
+.breadcrumb-link{
+  color: #606060;
+  text-decoration: none;
+  font-size: 22px;
+  text-decoration: none;
+}
+
+.active{
+  color: #263A71;
+}
+@media only screen and (min-width: 993px){
+.bread{
+      display: none;
+  }
+}

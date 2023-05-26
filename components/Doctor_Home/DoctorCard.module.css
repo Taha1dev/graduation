@@ -1,0 +1,66 @@
+.card-doc {
+  padding: 20px;
+  width: 375px !important;
+  height: 280px;
+  margin: auto;
+}
+
+.pro-img {
+  width: 100px;
+  height: 100px;
+  position: relative;
+  bottom: 4px;
+  border-radius: 73px;
+}
+
+.doc-details {
+  line-height: 1;
+  align-items: center;
+  margin-top: 10px;
+}
+
+.doc-name {
+  color: var(--mainColor);
+  font-weight: bold;
+  line-height: 0.2;
+}
+
+.doc-spe {
+  font-size: 14px;
+  color: #606060;
+  font-weight: 700;
+  margin-bottom: 1px;
+}
+
+.doc-exp {
+  font-size: 10px;
+  color: #aeaeae;
+  font-weight: 700;
+
+}
+
+.line-card {
+  color: #c6c6c6;
+  margin: 0px;
+}
+
+.btn-appointment {
+  width: fit-content !important;
+  color: #606060 !important;
+  background-color: none;
+  padding: 10px;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 16px;
+  border: solid 1px #e1e1e1 !important;
+}
+
+.btn-profile {
+  padding: 10px;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 16px;
+  width: fit-content !important;
+  color: #ffffff !important;
+  background-color: var(--mainColor) !important;
+}

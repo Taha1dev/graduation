@@ -1,0 +1,39 @@
+.footer {
+  font-family: 'Nunito';
+  background-color: #282828;
+}
+
+.footer-img {
+  width: 84px;
+  height: 81px;
+}
+
+.op:hover {
+  opacity: 0.8;
+}
+
+.submit-red {
+  background-color: rgb(237, 34, 28);
+  border: none;
+
+}
+
+.footer-p {
+  font-size: 16px;
+}
+
+.footer-line {
+  color: #ffffff;
+}
+
+.linkStyle {
+  color: rgba(255, 255, 255, .5);
+  text-decoration: none;
+  transition: all .2s linear;
+}
+
+.linkStyle:hover {
+  color: #fff;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}

@@ -1,0 +1,32 @@
+.faq-q {
+  color: #1763B3;
+  margin-left: 80px;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.faq-a {
+  color: #5F5F5F;
+  margin-left: 80px;
+  font-size: 20px;
+  font-family: PT Sans;
+}
+
+.faq-line {
+  margin-top: 20px;
+  margin-left: 70px;
+  width: 629;
+}
+
+.FAQ-doc {
+  position: absolute;
+  right: 0px;
+  left: 90px;
+  bottom: 90px;
+
+}
+.faq-dep-title {
+  margin-left: 100px;
+  color:#ED221C;
+
+}

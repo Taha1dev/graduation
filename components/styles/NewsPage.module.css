@@ -1,0 +1,15 @@
+.news-card {
+  border-radius: 20px !important;
+  padding: 15px;
+}
+
+.date-card {
+  font-size: 14px;
+  color: #D5d5d5;
+  margin: 15px;
+  padding-left: 5px;
+}
+
+.text-color {
+  color: #606060;
+}

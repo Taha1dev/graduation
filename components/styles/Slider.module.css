@@ -1,0 +1,22 @@
+.bgslide {
+  width: 100%;
+  height: 303px;
+  background-color: #0557AD;
+  margin-bottom: 200px;
+  display: flex;
+  justify-content: center;
+}
+.mycarImg{
+  height: 400px;
+  width: 100%;
+}
+.slide-container {
+  width: 80%;
+  height: 514px;
+  margin-top: 150px;
+}
+.slide-item {
+  width: 1400px;
+  height: 80%;
+}
+

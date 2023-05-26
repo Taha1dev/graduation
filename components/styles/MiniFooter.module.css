@@ -1,0 +1,14 @@
+.foot {
+  text-align: center;
+  font-size: 18px;
+  background-color: #282828;
+  color: #ffffff;
+  padding: 15px;
+  align-content: center;
+  margin-bottom: 0px;
+  font-weight: 200;
+}
+
+.foot-p {
+  margin-bottom: 0px;
+}

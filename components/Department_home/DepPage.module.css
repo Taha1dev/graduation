@@ -1,0 +1,29 @@
+.pro-img {
+  width: 100px;
+  height: 100px;
+  position: relative;
+  bottom: 4px;
+  border-radius: 73px;
+}
+
+
+.card-dep {
+  background-color: #f0f0f0;
+  width: 390px;
+}
+.dep-name {
+  color: var(--mainColor);
+  font-weight: bold;
+}
+
+.dep-details {
+  font-size: 12px;
+  color: #333;
+}
+
+.dep-inf {
+  font-size: 12px;
+  color: #333;
+  opacity: .8;
+  font-weight: 700;
+}

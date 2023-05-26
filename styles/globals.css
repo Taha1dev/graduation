@@ -1,0 +1,366 @@
+@import 'bootstrap/dist/css/bootstrap.min.css';
+@import url('https://fonts.googleapis.com/css2?family=Work+Sans:wght@200;300;400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;500;600;700&display=swap');
+
+* {
+  font-family: 'Nunito';
+}
+
+/* color_palet */
+:root {
+  /* color_palet */
+  --mainColor: #0557AD;
+  --2ndColor: #ED221C;
+  --bgfooterColor: #282828;
+  --fontColor: #333333;
+  --yellowColor: #DEAA4E;
+  --admainColor: #263A71;
+  --adtxtColor: #7B8DB4;
+  --adminbgColor: #F2F7FF;
+
+}
+
+/* heading  */
+/* img {
+  margin-left: 50px;
+  width: 46px;
+  height: 46px;
+} */
+
+.l-title {
+  font-size: 8px;
+}
+
+/* 
+.lan {
+  width: 60px;
+  height: 14px;
+  font-size: 14px;
+  text-align: center;
+}
+
+.log {
+  background-color: var(--admainColor);
+}
+
+.lan {
+  text-decoration: none;
+  color: #333333;
+  opacity: 50%;
+  padding-top: 0px;
+}
+
+/* heading  */
+/* navbar  */
+.navbar {
+  background-color: var(--mainColor);
+  text-align: center;
+
+}
+
+.navbar .navbar-nav .nav-link {
+  color: #ffffff;
+  font-size: 28px;
+
+  letter-spacing: 3%;
+}
+
+.navbar .navbar-nav .nav-link.active,
+.navbar .navbar-nav .nav-link:focus,
+.navbar .navbar-nav .nav-link:hover {
+  color: var(--yellowColor);
+}
+
+.btn {
+  background-color: var(--mainColor) !important;
+}
+
+/* navbar  */
+/* slide  */
+.bgslide {
+  width: 100%;
+  height: 303px;
+  background-color: var(--mainColor);
+  margin-bottom: 269px;
+  display: flex;
+  justify-content: center;
+
+}
+
+.slide-container {
+  width: 80%;
+  height: 514px;
+  margin-top: 150px;
+}
+
+.slide-item {
+  width: 1400px;
+  height: 514px;
+}
+
+.ser-title {
+  color: var(--2ndColor);
+  font-weight: bold;
+  letter-spacing: 3%;
+  margin-bottom: 31px;
+  display: block;
+}
+
+/* slide  */
+/* serveses  */
+/* .ser-cards {
+  margin-top: 31px;
+} */
+
+.tic {
+  width: 178px;
+  height: 155px;
+  margin-left: 0%;
+}
+
+.doc-img {
+  width: 35rem;
+  height: 252px;
+  margin-left: 20px;
+  padding: 0;
+}
+
+.img-sec {
+  left: 50px;
+  bottom: 30px;
+}
+
+.normal-cards {
+  width: 281px;
+  height: 252px;
+  border-radius: 11px;
+  background-color: #FEFEFE;
+  border: 1px solid #333
+}
+
+.normal-cards.img-card {
+  width: 60px;
+  height: 40px;
+}
+
+.normal-cards.p-card {
+  font-size: 16px;
+  font-weight: 400;
+  color: #333333;
+}
+
+.item2-m {
+  position: relative;
+  right: 38px;
+}
+
+.tac {
+  width: 178px;
+  height: 155px;
+}
+
+.m-item {
+  margin-left: 1px;
+}
+
+/* serveses  */
+/* welcome to our hospital  */
+.backGround {
+  width: 100%;
+  margin-top: 58px;
+  background-color: #eeeeee;
+}
+
+.Polygon-img {
+  width: 84px;
+  height: 44px;
+  align-items: center;
+}
+
+.backLogo {
+  width: 474px;
+  height: 488px;
+  top: 40px;
+  left: 35px;
+  margin-left: 0px;
+}
+
+.title-1 {
+  color: var(--mainColor);
+  left: 105px;
+  bottom: 350px;
+}
+
+.title-2 {
+  color: var(--yellowColor);
+  left: 105px;
+  bottom: 315px;
+}
+
+.p-text {
+  left: 105px;
+  bottom: 70px;
+  color: var(--fontColor);
+}
+
+.hos-img {
+  width: 575px;
+  height: 551px;
+  margin-left: 0px;
+}
+
+.hos-img-con {
+  left: 50px;
+  top: 10px;
+}
+
+/* end welcome to our hospital  */
+/* <!-- Departments --> */
+.faq-dep-title {
+  color: var(--2ndColor);
+}
+
+.des-dep {
+  font-size: 28px;
+  color: var(--fontColor);
+  /* margin-left: 100px; */
+}
+
+.card-img-top {
+  width: 285px;
+  height: 327px;
+}
+
+
+/* <!-- Departments --> */
+/* FAQ  */
+.faq-q {
+  color: var(--mainColor);
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.faq-a {
+  color: var(--fontColor);
+  margin-left: 80px;
+  font-size: 20px;
+}
+
+.faq-line {
+  margin-top: 20px;
+  margin-left: 70px;
+  width: 629px;
+}
+
+.FAQ-doc {
+  position: absolute;
+  right: 0px;
+  left: 90px;
+  bottom: 90px;
+  width: 350px;
+  height: 460px;
+}
+
+/* responsive */
+@media only screen and (max-width: 768px) {
+  .FAQ-doc {
+    display: none;
+  }
+
+  .hos-img {
+    width: 400px;
+    height: 400px;
+  }
+
+  .backLogo {
+    width: 400px;
+    height: 408px;
+    top: 40px;
+    left: 35px;
+  }
+
+  .title-1 {
+    left: 25px;
+    bottom: 335px;
+  }
+
+  .title-2 {
+    left: 25px;
+    bottom: 300px;
+  }
+
+  .p-text {
+    left: 25px;
+    bottom: 25px;
+  }
+
+}
+
+@media only screen and (max-width: 999px) {
+  .FAQ-doc {
+    display: none;
+  }
+
+  hos-img {
+    width: 400px;
+    height: 300px
+  }
+
+  .p-text {
+
+    bottom: 25px;
+
+  }
+}
+
+@media only screen and (max-width: 519px) {
+  .FAQ-doc {
+    display: none;
+  }
+
+  .hos-img {
+    width: 350px;
+    height: 350px;
+  }
+
+  .p-text {
+    bottom: 5px;
+  }
+}
+
+@media only screen and (max-width: 1400px) {
+  .p-text {
+    left: 35px;
+    bottom: 35px;
+  }
+
+  .title-1 {
+    left: 35px;
+    bottom: 335px;
+  }
+
+  .title-2 {
+    left: 35px;
+    bottom: 300px;
+  }
+
+  .hos-img {
+    width: 450px;
+    height: 450px;
+  }
+
+}
+
+@media only screen and (max-width: 1200px) {
+  .hos-img {
+    width: 400px;
+    height: 399px;
+    margin-top: 80px;
+  }
+
+  .p-text {
+    left: 35px;
+    bottom: 10px;
+  }
+
+}

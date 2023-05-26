@@ -1,0 +1,22 @@
+.news_singel-img {
+
+  justify-items: center;
+
+
+  /* img */
+}
+
+/* paragraph */
+.titles {
+  color: var(--mainColor);
+}
+
+.singel_news_p {
+  color: var(--text-color);
+  font-size: 16px;
+}
+
+.p_div {
+  margin-top: 20px !important;
+  margin-bottom: 50px;
+}

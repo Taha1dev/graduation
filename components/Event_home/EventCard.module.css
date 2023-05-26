@@ -1,0 +1,20 @@
+.event_card {
+  border: none !important;
+}
+.card_btn {
+  width: fit-content !important;
+  background-color: transparent !important;
+}
+.card_btn:hover {
+  background-color: var(--mainColor) !important;
+  color: white;
+}
+
+.card-title {
+  color: var(--mainColor);
+
+}
+
+.card-text {
+  color: var(--text-color);
+}

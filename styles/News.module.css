@@ -1,0 +1,48 @@
+/* make Appointment */
+.Appointment-back {
+  background-color: #D9D9D9;
+  height: 270px;
+}
+
+
+.Appointment-cap {
+  color: #0557AD;
+}
+
+.Appointment-btn {
+  width: fit-content !important;
+  background-color: #0557AD !important;
+  color: #ffffff !important;
+  padding: 10px;
+}
+
+.doc-pic {
+  width: 410px;
+  height: 460px;
+
+}
+
+.cap {
+  left: 200px;
+}
+
+/* make Appointment */
+
+@media only screen and (min-width: 992px) {
+  .doc-pic {
+    position: absolute;
+    bottom: 1px;
+  }
+
+  .cap {
+    position: absolute;
+    top: 70px;
+    right: 1px;
+  }
+}
+
+@media only screen and (max-width: 991px) {
+  .Appointment-back {
+    height: fit-content;
+  }
+}
