@@ -3,7 +3,7 @@ import styles from './DepPage.module.css';
 
 const DepPageCard = (props) => {
   return (
-    <div className={`card col-lg-4 col-md-6 col-sm-12 d-flex justify-content-center${styles['card-dep']} p-1`}>
+    <div className={`card col-lg-4 col-md-6 col-sm-12 d-flex justify-content-center${styles['card-dep']} m-1  p-1`}>
       <div className="card-body">
         <div className="card-title d-flex  ">
           <div className={`${styles['pro-img']} me-2`}>

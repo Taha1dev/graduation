@@ -1,8 +1,7 @@
 const { default: Image } = require('next/image');
 const { default: Link } = require('next/link');
-import BannerImg from './BannerImg';
 import styles from './styles/NavBar.module.css';
-function NavBar() {
+function NavNoBtn() {
   return (
     <>
       <div className="container mt-2">
@@ -21,18 +20,8 @@ function NavBar() {
               </p>
             </div>
           </div>
-          <div className="col-lg-4 col-md-8 col-sm-8 d-flex justify-content-end">
-            <Link href={'/Home/Login'}
-              className={`${styles.btn} ${styles.log} text-light rounded-pill px-4 me-2 d-flex align-items-center justify-content-center`}
-            >
-              Login
-            </Link>
-            <Link href={'/Home/Signup'}
-              className={`${styles.btn} ${styles.log} text-light rounded-pill px-4  d-flex align-items-center justify-content-center`}
-            >
-              Signup
-            </Link>
-          </div>
+
+          
         </div>
       </div>
       <nav className={`${styles.navbar} navbar-expand-lg mt-2`}>
@@ -85,4 +74,4 @@ function NavBar() {
   );
 }
 
-export default NavBar;
+export default NavNoBtn;

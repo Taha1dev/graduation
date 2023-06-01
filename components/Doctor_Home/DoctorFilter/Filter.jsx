@@ -23,23 +23,23 @@ const Filter = () => {
           <div className={` col-lg-2 col-md-4 my-md-2 my-sm-2`}>
             <select className="form-select" aria-label="Default select example">
               <option selected>Select Speciality</option>
-              <option value="1">One</option>
-              <option value="2">Two</option>
-              <option value="3">Three</option>
+              <option defaultValue="1">One</option>
+              <option defaultValue="2">Two</option>
+              <option defaultValue="3">Three</option>
             </select>
           </div>
           <div className={` col-lg-2 col-md-4 my-md-2 my-sm-2`}>
             <select className="form-select" aria-label="Default select example">
               <option selected>Select Gender</option>
-              <option value="1">One</option>
-              <option value="2">Two</option>
+              <option defaultValue="1">One</option>
+              <option defaultValue="2">Two</option>
             </select>
           </div>
           <div className={` col-lg-2 col-md-4 my-md-2 my-sm-2`}>
             <select className="form-select" aria-label="Default select example">
               <option selected>Select Language</option>
-              <option value="1">One</option>
-              <option value="2">Two</option>
+              <option defaultValue="1">One</option>
+              <option defaultValue="2">Two</option>
             </select>
           </div>
           <button

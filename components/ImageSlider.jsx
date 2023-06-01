@@ -5,18 +5,17 @@ import { Carousel } from 'react-bootstrap';
 
 function ImageSlider() {
   const HOMESLIDER_IMAGES = [
-    {id:1, src: '/imgs/carouselhospital.jpg' },
+    {id:1, src: '/imgs/carho.jpg' },
     {id:2, src: '/imgs/carohos.jpg' },
     {id:3, src: '/imgs/carho.jpg' },
   ];
 
   return (
     <>
-
       <Carousel>
         {HOMESLIDER_IMAGES.map((slider) => {
           return (
-            <Carousel.Item key={slider.id} >
+            <Carousel.Item key={slider.id}>
               <Image
                 height={1000}
                 width={1000}

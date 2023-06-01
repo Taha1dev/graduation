@@ -18,7 +18,7 @@ export default function Home() {
       <ImageSlider />
       {/* services */}
       <br />
-          <h1 className="ser-title text-center my-3">Services</h1>
+      <h1 className="ser-title text-center my-3">Services</h1>
       <Container>
         <Row className="justify-content-center">
           <HomeCard />
@@ -54,10 +54,10 @@ export default function Home() {
           <button className="col-lg-2 m-md-5 btn btn-primary">see all</button>
         </div>
         <div className="row justify-content-center mt-4">
-          <DepartmentCard title='Surgery' src='/imgs/homeDep1.png'/>
-          <DepartmentCard title='Eye' src='/imgs/homedep2.png'/>
-          <DepartmentCard title='Reproductive' src='/imgs/homedep3.png'/>
-          <DepartmentCard title='Respiratory' src='/imgs/homedep4.png'/>
+          <DepartmentCard title="Surgery" src="/imgs/homeDep1.png" />
+          <DepartmentCard title="Eye" src="/imgs/homedep2.png" />
+          <DepartmentCard title="Reproductive" src="/imgs/homedep3.png" />
+          <DepartmentCard title="Respiratory" src="/imgs/homedep4.png" />
         </div>
       </div>
       <FAQ />
