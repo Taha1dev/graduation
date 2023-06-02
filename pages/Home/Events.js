@@ -27,5 +27,4 @@ function Events() {
     </Layout>
   );
 }
-
 export default Events;

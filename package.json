@@ -13,14 +13,17 @@
     "@fortawesome/free-solid-svg-icons": "^6.4.0",
     "@fortawesome/react-fontawesome": "^0.2.0",
     "antd": "^5.5.0",
+    "axios": "^1.4.0",
     "bootstrap": "^5.2.3",
     "breadcrumb": "^1.0.0",
     "fontawesome": "^5.6.3",
     "ionicons": "^7.1.0",
+    "joi": "^17.9.2",
     "next": "13.3.4",
     "prettier": "^2.8.8",
     "react": "18.2.0",
     "react-bootstrap": "^2.7.4",
-    "react-dom": "18.2.0"
+    "react-dom": "18.2.0",
+    "sweetalert": "^2.1.2"
   }
 }

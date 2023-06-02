@@ -1,5 +1,73 @@
-@media (min-width: 1025px) {
-  .h-custom-2 {
-  height: 100%;
+.login-signup-form {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.inp:focus {
+  transition: 500ms linear;
+  background-color: #0557ad;
+  opacity: .8;
+  color: #fff;
+}
+
+.inp {
+  width: 100%;
+  padding: 15px;
+  font-size: 18px;
+}
+
+.animated {
+  -webkit-animation-duration: 0.3s;
+  animation-duration: 0.3s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+}
+
+.fadeInDown {
+  -webkit-animation-name: fadeInDown;
+  animation-name: fadeInDown;
+}
+
+.login-signup-form .form {
+  width: 360px;
+  position: relative;
+  z-index: 1;
+  background: #FFFFFF;
+  max-width: 360px;
+  padding: 34px;
+  box-shadow: 0 0 2px 0 rgba(0, 0, 0, 0.1);
+}
+
+.login-signup-form .title {
+  font-size: 20px;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.login-signup-form .form .message {
+  margin: 15px 0 0;
+  color: #b3b3b3;
+  font-size: 16px;
+  text-align: center;
+}
+
+.login-signup-form .form .message a {
+  color: #5b08a7;
+  text-decoration: none;
+}
+.form-control{
+  border-color:#eee ;
+}
+@keyframes fadeInDown {
+  0% {
+    opacity: 0;
+    transform: translateY(-20px);
   }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
   }
+}
