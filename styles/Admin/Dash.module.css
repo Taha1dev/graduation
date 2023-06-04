@@ -1,0 +1,18 @@
+.card-type {
+  width: 220px;
+  height: 120px ;
+  background-color: #fff;
+  border-radius: 7px !important;
+  align-items: center;
+}
+
+.card-tit {
+  margin-top: 0px;
+  color: var(--mainColor);
+}
+
+.link-none {
+  text-decoration: none;
+  display: flex;
+  color: var(--mainColor);
+}

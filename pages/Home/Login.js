@@ -1,54 +1,78 @@
-import { useState } from 'react';
+import { useRef, useState } from 'react';
 import NavNoBtn from '@/components/NavNoBtn';
 import Image from 'next/image';
 import Link from 'next/link';
 import axios from 'axios';
+import swal from 'sweetalert';
 import Joi from 'joi';
 import { useRouter } from 'next/router';
 import styles from '@/styles/Login.module.css';
 const Login = () => {
+  //Router
   const router = useRouter();
+  //end Router
+
+  // use States
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  // end Use States
+  
+  // Refs
+  const emailRef = useRef(null);
+  const passwordRef = useRef(null);
+  const formData = {
+    email: emailRef.current.value,
+    password: passwordRef.current.value, 
+  };
+  // end Refs
+
+  // on Submit Function
   const handleLogin = async () => {
     try {
-      // validate email and password
+      // Validate form data
       const schema = Joi.object({
         email: Joi.string()
           .email({ tlds: { allow: false } })
           .required(),
-        password: Joi.string().min(6).max(30).required(),
+        password: Joi.string()
+          .pattern(new RegExp('^[a-zA-Z0-9]{3,30}$'))
+          .required(),
       });
-      const { error } = schema.validate({ email, password });
+      const { error } = schema.validate(formData, { abortEarly: false });
       if (error) {
-        setErrors({
-          ...error,
-          email: error.details[0].message,
+        swal({
+          title: 'Error',
+          text: 'There was an error with your form data. Please check your inputs and try again.',
+          icon: 'error',
         });
+        // setErrors({
+        //   ...error,
+        //   email: error.details[0].message,
+        // });
         return;
+      } else {
+        const response = await axiosClient
+          .post('/login', formData)
+          .then(({ data }) => {
+            const token = response.data.token;
+            const headers = {
+              Authorization: `Bearer ${token}`,
+            };
+            const postData = {};
+            const postResponse = axiosClie.post(
+              'https://api.example.com/post',
+              postData,
+              { headers }
+            );
+            console.log(postResponse.data);
+            // Navigate to new page
+            router.push('/Admin/'); // replace "/dashboard" with the URL of the page you want to navigate to
+          });
+        }
+      } catch (error) {
+        console.error(error);
       }
-      // send login request to server
-      const response = await axios.post('https://api.example.com/login', {
-        email,
-        password,
-      });
-      // handle successful response
-      const token = response.data.token;
-      const headers = {
-        Authorization: `Bearer ${token}`,
-      };
-      const postData = {};
-      const postResponse = await axios.post(
-        'https://api.example.com/post',
-        postData,
-        { headers }
-      );
-      console.log(postResponse.data);
-      // navigate to the new page
-      router.push('/Admin/index.js'); // replace "/dashboard" with the URL of the page you want to navigate to
-    } catch (error) {
-      console.error(error);
-    }
+    
   };
   return (
     <>
@@ -81,8 +105,9 @@ const Login = () => {
                       <input
                         type="text"
                         id="email"
+                        ref={emailRef}
                         className={`form-control form-control-lg ${styles.inp}`}
-                        value={email}
+                        // value={email}
                         onChange={(e) => setEmail(e.target.value)}
                       />
                       <label className="form-label"></label>
@@ -94,8 +119,9 @@ const Login = () => {
                       <input
                         id="password"
                         type="password"
+                        ref={passwordRef}
                         className={`form-control form-control-lg ${styles.inp}`}
-                        value={password}
+                        // value={password}
                         onChange={(e) => setPassword(e.target.value)}
                       />
                     </div>
