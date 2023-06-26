@@ -1,0 +1,114 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 3rem;
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 3rem;
+}
+
+.cardType:hover {
+  transform: scale(1.03);
+}
+
+.cardType {
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+}
+
+.cardBody img {
+  margin-bottom: 0.5rem;
+}
+
+.cardTit {
+  margin-top: 0.5rem;
+}
+
+.col {
+  flex: 1;
+  text-align: center;
+}
+
+.card {
+  background-color: #f8f9fa;
+  border: none;
+  border-radius: 10px;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+  transition: box-shadow 0.3s ease-in-out;
+  cursor: pointer;
+}
+
+.card:hover {
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.cardType {
+  width: 10rem;
+  height: 10rem;
+}
+
+.cardBody {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.cardTit {
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin-top: 0.5rem;
+  margin-bottom: 0;
+}
+
+.eye {
+  width: 4rem;
+}
+
+.res {
+  width: 5rem;
+}
+
+.testPic {
+  width: 6rem;
+}
+
+.bone {
+  width: 5rem;
+}
+
+.heart {
+  width: 4rem;
+}
+
+.ner {
+  width: 5rem;
+}
+
+.stomach {
+  width: 5rem;
+}
+
+.child {
+  width: 4rem;
+}
+
+.ambulance {
+  width: 5rem;
+}
+
+.surgery {
+  width: 6rem;
+}
+
+.linkNone {
+  text-decoration: none;
+  color: inherit;
+}

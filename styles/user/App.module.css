@@ -1,0 +1,32 @@
+.form-card {
+  margin: 2rem;
+  padding: 2rem;
+}
+
+.form-group {
+  text-align: left;
+}
+
+.form-group select {
+  width: 100%;
+}
+
+.form-group input {
+  width: 100%;
+}
+
+.form-btn {
+  margin-top: 2rem;
+  background-color: #007bff;
+  border-color: #007bff;
+}
+
+.form-btn:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+  color: #fff;
+}
+
+.container {
+  padding: 2rem;
+}

@@ -1,33 +1,34 @@
 import Image from 'next/image';
 import React from 'react';
 import styles from './styles/Slider.module.css';
-import { Carousel } from 'react-bootstrap';
+import { Carousel, Container } from 'react-bootstrap';
 
 function ImageSlider() {
   const HOMESLIDER_IMAGES = [
-    {id:1, src: '/imgs/carho.jpg' },
-    {id:2, src: '/imgs/carohos.jpg' },
-    {id:3, src: '/imgs/carho.jpg' },
+    { id: 1, src: '/imgs/caro1.jpg' },
+    { id: 2, src: '/imgs/caro3.jpg' },
+    { id: 3, src: '/imgs/caro4.jpg' },
   ];
 
   return (
     <>
-      <Carousel>
-        {HOMESLIDER_IMAGES.map((slider) => {
-          return (
-            <Carousel.Item key={slider.id}>
-              <Image
-                height={1000}
-                width={1000}
-                className={`d-block w-100 ${styles.mycarImg}`}
-                src={slider.src}
-                alt="Slider Image"
-                />
-            
-            </Carousel.Item>
-          );
-        })}
-      </Carousel>
+      <div className={styles.bgb}>
+        <div className={styles.bg}>
+          <Carousel>
+            {HOMESLIDER_IMAGES.map((slider) => {
+              return (
+                <Carousel.Item key={slider.id}>
+                  <img
+                    className={`d-block w-100 ${styles.mycarImg}`}
+                    src={slider.src}
+                    alt="Slider Image"
+                  />
+                </Carousel.Item>
+              );
+            })}
+          </Carousel>
+        </div>
+      </div>
     </>
   );
 }

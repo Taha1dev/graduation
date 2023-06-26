@@ -6,6 +6,28 @@
   font-family: 'Nunito';
 }
 
+/* For Webkit based browsers */
+::-webkit-scrollbar {
+  width: 15px;
+  /* Set the width of the scrollbar */
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  /* Set the background color of the track */
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(to bottom, #0274bf 0%, #0557ad 40%, #0274bf 100%);
+}
+
+/* Global styles */
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 /* color_palet */
 :root {
   /* color_palet */

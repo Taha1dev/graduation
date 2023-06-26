@@ -1,0 +1,156 @@
+.defaultLayout {
+  display: flex;
+  background-color: #f2f7ff;
+  height: auto;
+  /* Updated height */
+  overflow: hidden;
+}
+
+.defaultLayout aside {
+  width: 240px;
+  background-color: #fff;
+  padding: 1.5rem;
+  padding-right: 3rem;
+  position: sticky;
+  top: 0;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+.defaultLayout aside a {
+  display: flex;
+  align-items: center;
+  padding: 1rem 0;
+  border-radius: 10px;
+  color: #7c98d5;
+  text-decoration: none;
+  transition: all 0.2s;
+}
+
+.defaultLayout aside a:hover {
+  background-color: #f2f2f2;
+}
+
+.defaultLayout aside .fa-icon {
+  margin-right: 1.5rem;
+  font-size: 1.5rem;
+  padding-right: 1rem;
+}
+
+.defaultLayout aside span {
+  font-size: 1.2rem;
+  margin-left: 0.5rem;
+}
+
+.defaultLayout {
+  display: flex;
+  background-color: #f2f7ff;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.defaultLayout .content {
+  flex: 1;
+  background-color: #fff;
+  height: 100%;
+  overflow: hidden; /* Updated property */
+}
+
+.defaultLayout header {
+  padding: 1rem 2rem;
+  background-color: #fff;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.defaultLayout header h1 {
+  color: #343a40;
+  font-size: 1.5rem;
+  font-weight: 500;
+  margin: 0;
+}
+
+.defaultLayout header .btn-logout {
+  padding: 0.5rem 1rem;
+  color: #fff;
+  background-color: #0558ad;
+  border-radius: 10px;
+  text-decoration: none;
+  transition: all 0.3s;
+}
+
+.defaultLayout header .btn-logout:hover {
+  background-color: #00408c;
+}
+
+.defaultLayout main {
+  padding: 2rem;
+  height: auto;
+  overflow: auto;
+}
+
+.logoutIcon {
+  margin-right: 0.5rem;
+  font-size: 1.2rem;
+}
+
+.selected {
+  background-color: #0558ad;
+  color: #fff !important;
+}
+
+.selected::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  right: -10px;
+  transform: translateY(-50%);
+  width: 0;
+  height: 0;
+  border-top: 10px solid transparent;
+  border-bottom: 10px solid transparent;
+  border-right: 10px solid #0558ad;
+}
+
+@media (max-width: 768px) {
+  .defaultLayout aside {
+    width: 100%;
+    height: 80px;
+    display: flex;
+    flex-wrap: wrap;
+    /* Add the flex-wrap property */
+    justify-content: space-around;
+    align-items: center;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    padding-right: 1rem;
+  }
+
+  .defaultLayout aside a {
+    padding: 0.5rem;
+    font-size: 0.8rem;
+  }
+
+  .defaultLayout aside span {
+    font-size: 0.9rem;
+    margin-left: 0.3rem;
+  }
+
+  .defaultLayout header {
+    padding: 1rem;
+  }
+
+  .defaultLayout header h1 {
+    font-size: 1.2rem;
+  }
+
+  .defaultLayout header .btn-logout {
+    padding: 0.5rem;
+    font-size: 0.8rem;
+  }
+
+  .defaultLayout main {
+    padding: 1rem;
+    height: auto;
+  }
+}

@@ -1,8 +1,11 @@
 import React from 'react'
 
-const IndexCardComponent = (prop) => {
+const IndexCardComponent = () => {
+
+
   return (
     <div>IndexCardComponent</div>
   )
 }
+
 export default IndexCardComponent

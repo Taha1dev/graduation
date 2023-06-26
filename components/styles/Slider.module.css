@@ -6,17 +6,32 @@
   display: flex;
   justify-content: center;
 }
-.mycarImg{
+
+.mycarImg {
   height: 400px;
   width: 100%;
 }
+
 .slide-container {
   width: 80%;
   height: 514px;
   margin-top: 150px;
 }
+
 .slide-item {
   width: 1400px;
   height: 80%;
 }
 
+.bg {
+
+  /* width: fit-content; */
+  height: fit-content;
+  margin: 0 50px;
+}
+
+.bgb {
+  background-color: #0557AD !important;
+  height: 220px;
+  margin-bottom: 200px;
+}

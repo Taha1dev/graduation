@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import React, { useContext, useEffect, useMemo, useRef, useState } from 'react';
 import Joi from 'joi';
 import styles from '@/styles/Login.module.css';
 import axiosClient from '@/lib/axiosClent';
@@ -6,8 +6,14 @@ import { stateContext } from '@/Context/ContextProvider';
 import NavNoBtn from '@/components/NavNoBtn';
 import Image from 'next/image';
 import Link from 'next/link';
+import { useRouter } from 'next/router';
+import Swal from 'sweetalert2';
+import { setToken } from '@/lib/auth';
+import MiniFooter from '@/components/MiniFooter';
+const Register = () => {
+  const router = useRouter();
 
-const Signup = () => {
+  const [errors, setErrors] = useState({});
   const nicknameRef = useRef(null);
   const firstNameRef = useRef(null);
   const lastNameRef = useRef(null);
@@ -15,70 +21,50 @@ const Signup = () => {
   const passwordRef = useRef(null);
   const repeatPasswordRef = useRef(null);
   const phoneNumberRef = useRef(null);
-  const countryRef = useRef(null);
-  const cityRef = useRef(null);
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    const schema = Joi.object({
-      nickname: Joi.string().min(3).max(30).required(),
-      firstName: Joi.string().min(3).max(30).required(),
-      lastName: Joi.string().min(3).max(30).required(),
-      email: Joi.string()
-        .email({ tlds: { allow: false } })
-        .required(),
-      password: Joi.string()
-        .pattern(new RegExp('^[a-zA-Z0-9]{3,30}$'))
-        .required(),
-      repeatPassword: Joi.any().valid(Joi.ref('password')).required(),
-      phoneNumber: Joi.string().min(9).max(15).required(),
-      country: Joi.string().required(),
-      city: Joi.string().required(),
-    });
-
-    const { setUser, settoken } = stateContext();
-
-    const formData = {
-      nickname: nicknameRef.current.value,
-      firstName: firstNameRef.current.value,
-      lastName: lastNameRef.current.value,
-      email: emailRef.current.value,
-      password: passwordRef.current.value,
-      repeatPassword: repeatPasswordRef.current.value,
-      phoneNumber: phoneNumberRef.current.value,
-      country: countryRef.current.value,
-      city: cityRef.current.value,
-    };
-
-    const { error } = schema.validate(formData, { abortEarly: false });
-
-    if (error) {
-      // Handle validation errors here
-      console.log(error.details);
-    } else {
-      axiosClient
-        .post('/signup', formData)
-        .then(({ data }) => {
-          // Handle successful response here
-          setUser(data.user);
-          settoken(data.token);
-          console.log(response.data);
-        })
-        .catch((error) => {
-          // Handle error response here
-          const response = error.response;
-          if (response && response.status === 422) {
-            console.log(response.data.errors);
-          }
+  const { setToken, setUser } = useContext(stateContext);
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setToken(null);
+    try {
+      const formData = new FormData();
+      formData.append('PhoneNumber', phoneNumberRef.current.value);
+      formData.append('password', passwordRef.current.value);
+      formData.append('email', emailRef.current.value);
+      formData.append('LastName', lastNameRef.current.value);
+      formData.append('FirstName', firstNameRef.current.value);
+      formData.append('NickName', nicknameRef.current.value);
+  
+      const response = await axiosClient.post('/register', formData);
+  
+      // Set the token using the setToken function from auth.js
+      setToken(response.data.token);
+  
+      setUser(response.data.user);
+      router.push('/User/');
+    } catch (error) {
+      const response = error.response;
+      if (response && response.status === 422) {
+        const validationErrors = response.data.errors;
+        Swal.fire({
+          icon: 'error',
+          title: 'Validation Error',
+          html: Object.values(validationErrors)
+            .map((error) => `<p>${error[0]}</p>`)
+            .join(''),
         });
+        setErrors(validationErrors);
+      } else {
+        console.log(error);
+      }
     }
   };
+
   return (
     <>
       <NavNoBtn />
       <div
         className={`mask d-flex align-items-center h-100 ${styles['login-signup-form']}  ${styles.animated} ${styles.fadeInDown}`}
       >
-        {' '}
         <div className="my-3 container h-100">
           <div className="row d-flex justify-content-center align-items-center h-100">
             <div className="col-12 col-md-9 col-lg-7 col-xl-6">
@@ -96,36 +82,46 @@ const Signup = () => {
                   <h2 className="text-uppercase text-center mb-5">
                     Create an account
                   </h2>
+
                   <form onSubmit={handleSubmit}>
                     <div className="form-group">
-                      <label htmlFor="nickname">Nickname</label>
+                      <label htmlFor="NickName">Nickname</label>
                       <input
                         autoComplete="on"
                         type="text"
-                        id="nickname"
+                        id="NickName"
                         className={`form-control form-control-lg ${styles.inp}`}
                         ref={nicknameRef}
                       />
+                      {/* {errors.NickName && (
+                        <span className="text-danger">{errors.NickName}</span>
+                      )} */}
                     </div>
                     <div className="form-group">
-                      <label htmlFor="firstName">First Name</label>
+                      <label htmlFor="FirstName">First Name</label>
                       <input
                         autoComplete="on"
                         type="text"
-                        id="firstName"
+                        id="FirstName"
                         className={`form-control form-control-lg ${styles.inp}`}
                         ref={firstNameRef}
                       />
+                      {/* {errors.FirstName && (
+                        <span className="text-danger">{errors.FirstName}</span>
+                      )} */}
                     </div>
                     <div className="form-group">
-                      <label htmlFor="lastName">Last Name</label>
+                      <label htmlFor="LastName">Last Name</label>
                       <input
                         autoComplete="on"
                         type="text"
-                        id="lastName"
+                        id="LastName"
                         className={`form-control form-control-lg ${styles.inp}`}
                         ref={lastNameRef}
                       />
+                      {/* {errors.LastName && (
+                        <span className="text-danger">{errors.LastName}</span>
+                      )} */}
                     </div>
                     <div className="form-group">
                       <label htmlFor="email">Email</label>
@@ -136,6 +132,9 @@ const Signup = () => {
                         className={`form-control form-control-lg ${styles.inp}`}
                         ref={emailRef}
                       />
+                      {/* {errors.email && (
+                        <span className="text-danger">{errors.email}</span>
+                      )} */}
                     </div>
                     <div className="form-group">
                       <label htmlFor="password">Password</label>
@@ -146,6 +145,9 @@ const Signup = () => {
                         className={`form-control form-control-lg ${styles.inp}`}
                         ref={passwordRef}
                       />
+                      {/* {errors.password && (
+                        <span className="text-danger">{errors.password}</span>
+                      )} */}
                     </div>
                     <div className="form-group">
                       <label htmlFor="repeatPassword">Repeat Password</label>
@@ -156,58 +158,27 @@ const Signup = () => {
                         className={`form-control form-control-lg ${styles.inp}`}
                         ref={repeatPasswordRef}
                       />
+                      {/* {errors.repeatPassword && (
+                        <span className="text-danger">
+                          {errors.repeatPassword}
+                        </span>
+                      )} */}
                     </div>
                     <div className="form-group">
-                      <label htmlFor="phoneNumber">Phone Number</label>
+                      <label htmlFor="PhoneNumber">Phone Number</label>
                       <input
                         autoComplete="on"
                         type="tel"
-                        id="phoneNumber"
+                        id="PhoneNumber"
                         className={`form-control form-control-lg ${styles.inp}`}
                         ref={phoneNumberRef}
                       />
+                      {errors.PhoneM && (
+                        <span className="text-danger">{errors.PhoneM}</span>
+                      )}
                     </div>
-                    <div className="form-group">
-                      <label htmlFor="country">Country</label>
-                      <input
-                        autoComplete="on"
-                        type="text"
-                        id="country"
-                        className={`form-control form-control-lg ${styles.inp}`}
-                        ref={countryRef}
-                      />
-                    </div>
-                    <div className="form-group">
-                      <label htmlFor="city">City</label>
-                      <input
-                        autoComplete="on"
-                        type="text"
-                        id="city"
-                        className={`form-control form-control-lg ${styles.inp}`}
-                        ref={cityRef}
-                      />
-                      <div className="form-check d-flex justify-content-center mb-5">
-                      <input
-                        autoComplete="on"
-                        className="form-check-input me-2"
-                        type="checkbox"
-                        id="agreement"
-                        value=""
-                      />
-                    
-                      <label htmlFor="agreement" className="form-check-label">
-                        I agree all statements in{' '}
-                        <Link href="#" className="text-body">
-                          <u>Terms of service</u>
-                        </Link>
-                      </label>
-                    </div>
-                    </div>
-                    <div className="d-flex justify-content-center">
-                      <button
-                        type="button"
-                        className="btn bg-gradient text-white btn-lg"
-                      >
+                    <div className="mt-4 form-group d-flex justify-content-center">
+                      <button type="submit" className="btn text-white btn-lg">
                         Register
                       </button>
                     </div>
@@ -224,8 +195,9 @@ const Signup = () => {
           </div>
         </div>
       </div>
+      <MiniFooter />
     </>
   );
 };
 
-export default Signup;
+export default Register;

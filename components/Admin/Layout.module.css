@@ -14,25 +14,38 @@
   display: flex;
   background-color: #f2f7ff;
 }
-.selected{
+
+.selected {
   background-color: #0557ad;
   color: #fff !important;
 }
+
 .defaultLayout aside {
-  height: 100vh;
+  font-size: 1.5rem;
+  height: calc(100vh - 10px);
   width: 240px;
   background-color: #fff;
-  padding: 1rem
-  
+  padding: 1.5rem;
+  position: sticky;
+  top: 0;
 }
 
-.defaultLayout aside>a ,.defaultLayout aside>ul>li>Link {
-  display: block;
+.defaultLayout aside a {
+  display: flex;
+  align-items: center;
   padding: 0.75rem 1rem;
   border-radius: 6px;
   color: #7c98d5;
   text-decoration: none;
   transition: all 0.2s;
+}
+
+.defaultLayout aside a:hover {
+  background-color: #f2f2f2;
+}
+
+.defaultLayout aside .fa-icon {
+  margin-right: 1rem;
 }
 
 /* .defaultLayout aside>.link:hover,.defaultLayout aside>ul>li>Link:hover  {
@@ -41,7 +54,7 @@
 
 .defaultLayout .content {
   flex: 1;
-  
+
 }
 
 .defaultLayout header {

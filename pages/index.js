@@ -1,20 +1,46 @@
-import Head from 'next/head';
+import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
 import HomeCard from '@/components/HomeCard';
 import SummaryHospital from '@/components/SummaryHospital';
 import FAQ from '@/components/FAQ';
 import DepartmentCard from '@/components/DepartmentCard';
-import CarouselButton from '@/components/CarouselButton';
 import NavBar from '@/components/NavBar';
 import Footer from '@/components/Footer';
-import ShrinkCard from '@/components/ShrinkCard';
 import { Container, Row, Col, Nav } from 'react-bootstrap';
 import ImageSlider from '@/components/ImageSlider';
+import { Link, animateScroll as scroll } from 'react-scroll'; // Import the Link and animateScroll components from React Scroll
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faArrowUp } from '@fortawesome/free-solid-svg-icons';
 
 export default function Home() {
+  const [showScroll, setShowScroll] = useState(false); // State variable to control the display of the scroll-to-top icon
+
+  const scrollToTop = () => {
+    scroll.scrollToTop({ duration: 1 }); // Scroll to the top of the page with a duration of 500ms
+  };
+
+  const handleScroll = () => {
+    // Check if the user has scrolled down 200px from the top of the page
+    if (window.pageYOffset > 500) {
+      setShowScroll(true);
+    } else {
+      setShowScroll(false);
+    }
+  };
+
+  useEffect(() => {
+    // Add a scroll event listener to the window to detect when the user scrolls
+    window.addEventListener('scroll', handleScroll);
+
+    return () => {
+      // Remove the scroll event listener when the component is unmounted
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
+
   return (
     <>
-      <NavBar />
+      <NavBar />  
       <ImageSlider />
       {/* services */}
       <br />
@@ -51,7 +77,8 @@ export default function Home() {
             Lörem ipsum den val. Trejepp terade. Hexahet öpöd sologi. Uhys
             terasång syk som roliga i mys. Preprenar ora dekav.
           </p>
-          <button className="col-lg-2 m-md-5 btn btn-primary">see all</button>
+          {/* Replace the anchor tag with the Link component */}
+          <Link to="departments" smooth={true} duration={500} className="col-lg-2 m-md-5 btn btn-primary">see all</Link>
         </div>
         <div className="row justify-content-center mt-4">
           <DepartmentCard title="Surgery" src="/imgs/homeDep1.png" />
@@ -62,6 +89,37 @@ export default function Home() {
       </div>
       <FAQ />
       <Footer />
+      
+      {/* Add a scroll-to-top icon that is displayed when the user scrolls down */}
+      {showScroll && (
+        <div className="scroll-to-top" onClick={scrollToTop}>
+          <FontAwesomeIcon color='#fff' icon={faArrowUp} />
+        </div>
+      )}
+      
+      {/* Add styles for the scroll-to-top icon */}
+      <style jsx>{`
+        .scroll-to-top {
+          position: fixed;
+          bottom: 20px;
+          right: 20px;
+          width: 50px;
+          height: 50px;
+          border-radius: 50%;
+          background-color: #0557ad;
+          cursor: pointer;
+          transition: opacity 0.3s ease;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          z-index: 99999;
+        }
+
+        .scroll-to-top:hover {
+          opacity: 0.8;
+        }
+        
+      `}</style>
     </>
   );
 }

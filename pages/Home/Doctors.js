@@ -1,26 +1,24 @@
 import Layout from '@/components/_Layout';
 import BreadCrumb from '@/components/BreadCrumb/BreadCrumb';
 import DoctorCard from '@/components/Doctor_Home/DoctorCard';
-import Filter from '@/components/Doctor_Home/DoctorFilter/Filter';
 import { Container, Row } from 'react-bootstrap';
+import axiosClient from '@/lib/axiosClent';
 
-function Doctors() {
+export default function Doctors({ doctors }) {
+  
+  if (!Array.isArray(doctors) || doctors.length === 0) {
+    return <div>No doctors found</div>;
+  }
+
   return (
     <>
       <Layout>
         <BreadCrumb name={'Doctors'} />
-        <Filter />
         <Container>
           <Row>
-            <DoctorCard />
-            <DoctorCard />
-            <DoctorCard />
-            <DoctorCard />
-            <DoctorCard />
-            <DoctorCard />
-            <DoctorCard />
-            <DoctorCard />
-            <DoctorCard />
+            {doctors.map((doctor) => (
+              <DoctorCard key={doctor.Doctor_ID} doctor={doctor} />
+            ))}
           </Row>
         </Container>
       </Layout>
@@ -28,4 +26,14 @@ function Doctors() {
   );
 }
 
-export default Doctors;
+export async function getStaticProps() {
+  const response = await axiosClient.get('/Doctor');
+  const doctors = response.data.data || [];
+
+  return {
+    props: {
+      doctors,
+    },
+    revalidate: 60, // regenerate the page in the background every 60 seconds
+  };
+}

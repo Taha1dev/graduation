@@ -13,7 +13,7 @@ function DepartmentCard(props) {
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti
           facere quis, quidem suscipit quibusdam consequuntur?
         </p>
-        <Link href="#" className="btn btn-primary w-auto">
+        <Link href="/Home/Departments" className="btn btn-primary w-auto">
           Details
         </Link>
       </div>

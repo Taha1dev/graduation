@@ -27,7 +27,13 @@
 .log:hover {
   background-color: rgb(5, 87, 173, .9);
 }
-
+.profileIcon{
+  cursor: pointer;
+  border-radius: 50px;
+  width: fit-content;
+  background-color: #eee;
+  padding: 15px;
+}
 .navbar {
   background-color: #0557AD;
   text-align: center;

@@ -1,9 +1,12 @@
 .card-type {
   width: 220px;
-  height: 120px ;
+  height: 130px !important;
   background-color: #fff;
+  padding: 10px;
   border-radius: 7px !important;
   align-items: center;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5), 0 0 0 0 black;
+
 }
 
 .card-tit {
@@ -13,6 +16,8 @@
 
 .link-none {
   text-decoration: none;
-  display: flex;
   color: var(--mainColor);
+  font-size: larger;
+  font-weight: 600;
+  display:inline-block
 }

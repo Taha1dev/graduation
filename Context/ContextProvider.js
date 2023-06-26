@@ -1,37 +1,32 @@
-import { useContext, useState } from 'react';
+import { useContext, useState, useMemo } from 'react';
 import React from 'react';
 
 export const stateContext = React.createContext({
   user: null,
   token: null,
   setUser: () => {},
-  setToken: () => {},
+  setContextToken: () => {},
 });
 
 export const ContextProvider = ({ children }) => {
   const [user, setUser] = useState(null);
-  const [token, _setToken] = useState(
+  const [token, setToken] = useState(
     typeof localStorage !== 'undefined'
       ? localStorage.getItem('ACCESS_TOKEN')
       : null
   );
-  const setToken = (newToken) => {
-    _setToken(newToken);
-    if (newToken) {
-      localStorage.setItem('ACCESS_TOKEN', newToken);
-    } else {
-      localStorage.removeItem('ACCESS_TOKEN');
-    }
-  };
+
+  const contextValue = useMemo(() => {
+    return {
+      user,
+      token,
+      setUser,
+      setToken,
+    };
+  }, [user, token]);
+
   return (
-    <stateContext.Provider
-      value={{
-        user,
-        token,
-        setUser,
-        setToken,
-      }}
-    >
+    <stateContext.Provider value={contextValue}>
       {children}
     </stateContext.Provider>
   );

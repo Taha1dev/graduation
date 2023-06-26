@@ -18,6 +18,45 @@
   font-size: 18px;
 }
 
+label.form-check-label {
+  transition: all 0.2s ease-in-out;
+}
+
+input.form-check-input:not(:checked)+label.form-check-label {
+  animation: shake 0.5s ease-in-out;
+}
+
+input.form-check-input:not(:checked)+label.form-check-label:hover {
+  cursor: pointer;
+}
+
+input.form-check-input:not(:checked)+label.form-check-label:active {
+  color: red;
+}
+
+@keyframes shake {
+
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+
+  10%,
+  30%,
+  50%,
+  70%,
+  90% {
+    transform: translateX(-10px);
+  }
+
+  20%,
+  40%,
+  60%,
+  80% {
+    transform: translateX(10px);
+  }
+}
+
 .animated {
   -webkit-animation-duration: 0.3s;
   animation-duration: 0.3s;
@@ -46,6 +85,7 @@
   text-align: center;
 }
 
+
 .login-signup-form .form .message {
   margin: 15px 0 0;
   color: #b3b3b3;
@@ -57,9 +97,11 @@
   color: #5b08a7;
   text-decoration: none;
 }
-.form-control{
-  border-color:#eee ;
+
+.form-control {
+  border-color: #eee;
 }
+
 @keyframes fadeInDown {
   0% {
     opacity: 0;

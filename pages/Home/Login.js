@@ -1,79 +1,48 @@
-import { useRef, useState } from 'react';
+import { useContext, useEffect, useRef, useState } from 'react';
 import NavNoBtn from '@/components/NavNoBtn';
 import Image from 'next/image';
 import Link from 'next/link';
-import axios from 'axios';
-import swal from 'sweetalert';
-import Joi from 'joi';
 import { useRouter } from 'next/router';
 import styles from '@/styles/Login.module.css';
+import axiosClient from '@/lib/axiosClent';
+import { stateContext } from '@/Context/ContextProvider';
+import { setToken } from '@/lib/auth';
 const Login = () => {
-  //Router
+  // Router Hook
   const router = useRouter();
-  //end Router
-
-  // use States
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  // end Use States
-  
+  // Get Data From ContextAPI
+  const { setUser, setContextToken } = useContext(stateContext);
   // Refs
-  const emailRef = useRef(null);
-  const passwordRef = useRef(null);
-  const formData = {
-    email: emailRef.current.value,
-    password: passwordRef.current.value, 
-  };
-  // end Refs
+  const emailRef = useRef();
+  const passwordRef = useRef();
 
-  // on Submit Function
-  const handleLogin = async () => {
+  // Handle Login Function
+  const handleLogin = async (event) => {
+    event.preventDefault();
+  
+    const payload = {
+      email: emailRef.current.value,
+      password: passwordRef.current.value,
+    };
+  
     try {
-      // Validate form data
-      const schema = Joi.object({
-        email: Joi.string()
-          .email({ tlds: { allow: false } })
-          .required(),
-        password: Joi.string()
-          .pattern(new RegExp('^[a-zA-Z0-9]{3,30}$'))
-          .required(),
-      });
-      const { error } = schema.validate(formData, { abortEarly: false });
-      if (error) {
-        swal({
-          title: 'Error',
-          text: 'There was an error with your form data. Please check your inputs and try again.',
-          icon: 'error',
-        });
-        // setErrors({
-        //   ...error,
-        //   email: error.details[0].message,
-        // });
-        return;
+      const response = await axiosClient.post('/login', payload);
+      const { token, user } = response.data;
+      setToken(token);
+      setContextToken(token); // Set the token in the context provider
+      setUser(user);
+      router.push('/User');
+    } catch (error) {
+      console.error(error);
+  
+      if (error.response) {
+        console.log(error.response.data.message);
       } else {
-        const response = await axiosClient
-          .post('/login', formData)
-          .then(({ data }) => {
-            const token = response.data.token;
-            const headers = {
-              Authorization: `Bearer ${token}`,
-            };
-            const postData = {};
-            const postResponse = axiosClie.post(
-              'https://api.example.com/post',
-              postData,
-              { headers }
-            );
-            console.log(postResponse.data);
-            // Navigate to new page
-            router.push('/Admin/'); // replace "/dashboard" with the URL of the page you want to navigate to
-          });
-        }
-      } catch (error) {
-        console.error(error);
+        console.log('An error occurred while logging in.');
       }
-    
+    }
   };
+
   return (
     <>
       <NavNoBtn />
@@ -97,7 +66,7 @@ const Login = () => {
                   <h2 className="text-capitalize text-center mb-3">
                     Login to Your Account
                   </h2>
-                  <form>
+                  <form onSubmit={handleLogin}>
                     <div className="form-outline">
                       <label htmlFor="email" className="form-label fs-5">
                         Email
@@ -107,8 +76,6 @@ const Login = () => {
                         id="email"
                         ref={emailRef}
                         className={`form-control form-control-lg ${styles.inp}`}
-                        // value={email}
-                        onChange={(e) => setEmail(e.target.value)}
                       />
                       <label className="form-label"></label>
                     </div>
@@ -121,22 +88,19 @@ const Login = () => {
                         type="password"
                         ref={passwordRef}
                         className={`form-control form-control-lg ${styles.inp}`}
-                        // value={password}
-                        onChange={(e) => setPassword(e.target.value)}
                       />
                     </div>
                     <div className="d-flex justify-content-center">
                       <button
-                        type="button"
+                        type="submit"
                         className="btn bg-gradient text-white btn-lg"
-                        onClick={handleLogin}
                       >
                         Login
                       </button>
                     </div>
                     <p className="text-center text-muted mt-5 mb-0">
                       Don't Havean Account?{' '}
-                      <Link href="./Signup" className="fw-bold text-body">
+                      <Link href="./Register" className="fw-bold text-body">
                         <u>Create Account</u>
                       </Link>
                     </p>

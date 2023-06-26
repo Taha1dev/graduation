@@ -1,5 +1,5 @@
-const { default: Image } = require('next/image');
-const { default: Link } = require('next/link');
+import Link from 'next/link';
+import Image from 'next/image';
 import styles from './styles/NavBar.module.css';
 function NavNoBtn() {
   return (
@@ -20,14 +20,9 @@ function NavNoBtn() {
               </p>
             </div>
           </div>
-
-          
         </div>
       </div>
       <nav className={`${styles.navbar} navbar-expand-lg mt-2`}>
-        <Link href="#navshow" data-toggle="collapse" className="navbar-toggler">
-          <span className="navbar-toggler-icon"></span>
-        </Link>
         <div id="navshow" className="collapse navbar-collapse">
           <ul className={`${styles['navbar-nav']} navbar-nav mx-auto`}>
             <li className="nav-item p-2 px-lg-3 active">
@@ -66,7 +61,6 @@ function NavNoBtn() {
                 Doctors
               </Link>
             </li>
-            
           </ul>
         </div>
       </nav>

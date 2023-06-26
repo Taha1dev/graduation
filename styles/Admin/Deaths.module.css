@@ -1,0 +1,22 @@
+.card-type {
+  width: 182px;
+  height: 120px !important;
+  background-color: #fff;
+  border-radius: 7px !important;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5), 0 0 0 0 black;
+}
+
+.card-tit {
+  margin-top: 0px;
+  color: var(--mainColor);
+}
+
+.link-none {
+  text-decoration: none;
+  color: var(--mainColor);
+}
+
+/* Add styles for the '>' icon */
+svg.bi-chevron-right {
+  vertical-align: middle;
+}

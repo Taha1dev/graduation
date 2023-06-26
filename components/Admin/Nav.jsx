@@ -2,7 +2,14 @@ import React from 'react';
 import styles from '../Admin/Nav.module.css';
 import Link from 'next/link';
 import Image from 'next/image';
+import axiosClient from '@/lib/axiosClent';
+import { useRouter } from 'next/router';
 const Nav = () => {
+  const router = useRouter()
+  const handleLogout = () => {
+    axiosClient.post('/logout')
+    router.push('/Home/Login')
+  };
   return (
     <nav className={`navbar navbar-expand-sm navbar-dark `}>
       <div className="container-fluid ms-5">
@@ -20,13 +27,21 @@ const Nav = () => {
           <div className="d-flex">
             <ul className={`${styles['navbar-nav']} navbar-nav mx-auto`}>
               <li className="nav-item p-2 px-lg-3">
-                <h4 className="me-2 text-white">Admin Panel</h4>
+                <Link
+                  className={`${styles['nav-link']}  btn me-2 text-white`}
+                  href="/"
+                >
+                  Home
+                </Link>
               </li>
               <li className="nav-item p-2 px-lg-3">
                 {' '}
-                <Link className={`${styles['nav-link']} me-2 text-white`} href="/">
-                  Home
-                </Link>
+                <button
+                  className={`${styles['nav-link']} me-2 btn text-white`}
+                  onClick={handleLogout}
+                >
+                  Logout
+                </button>
               </li>
             </ul>
           </div>

@@ -1,14 +1,23 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import NavBar from '@/components/NavBar';
-import { Breadcrumb } from 'react-bootstrap';
+import { useState, useEffect } from 'react';
 import NewsPageCard from '@/components/NewsPageCard';
 import styles from '@/styles/News.module.css';
 import NewsCardBtn from '@/components/newsPage/NewsCardBtn';
 import BreadCrumb from '@/components/BreadCrumb/BreadCrumb';
 import Layout from '@/components/_Layout';
 import AppointmentUpMiniFooter from '@/components/AppointmentUpMiniFooter';
+import { axiosGetClient } from '@/lib/axiosClent';
 function News() {
+  const [data, setData] = useState([]);
+
+  useEffect(() => {
+    axiosGetClient.get('/Post')
+      .then(response => setData(response.data.data))
+      .catch(error => console.error(error));
+  }, []);
+
   return (
     <>
       <Layout>
@@ -19,10 +28,9 @@ function News() {
             width={500}
             quality={100}
             alt=""
-            className="p-0  container h-100"
+            className="p-0  container h-100 "
           />
         </div>
-
         {/* <!-- Breadcrumb --> */}
         <BreadCrumb name={'News'} />
         <h4 className={`${styles['bread-title']} ps-5`}>SAIFEE News</h4>
@@ -40,48 +48,24 @@ function News() {
           tincidunt pellentesque. Tempus massa rhoncus velit nec. Lorem purus
           est facilisis quam lorem amet, nunc lectus.
         </p>
-        {/* <!-- p -->
-      <!-- news cards --> */}
+        {/* <!-- p --> */}
+        {/* <!-- news cards --> */}
         <div className="container mt-3 mb-5">
           <div className="row">
-            <NewsPageCard />
-            <NewsPageCard />
-            <NewsPageCard />
-            <NewsPageCard />
-            <NewsPageCard />
-            <NewsPageCard />
-            <NewsPageCard />
-            <NewsPageCard />
+            {data.map(item => (
+              <NewsPageCard
+                key={item.post_id}
+                title={item.post_title}
+                date="05 September 2022"
+                text={item.post_text}
+              />
+            ))}
           </div>
         </div>
-        {/* <!-- news cards -->
-      <!-- button group --> */}
-        <div className="container d-flex justify-content-center mt-5 mb-5">
-          <div className="row ">
-            <div
-              className={`${styles['btn-toolbar']}`}
-              role="toolbar"
-              aria-label="Toolbar with button groups"
-            >
-              <div
-                className={`${styles['btn-group me-2']}`}
-                role="group"
-                aria-label="First group"
-              >
-                <NewsCardBtn value={1} />
-                <NewsCardBtn value={2} />
-                <NewsCardBtn value={'...'} />
-                <NewsCardBtn value={'>'} />
-              </div>
-            </div>
-          </div>
-        </div>
-        {/* <!-- button group -->
-      <!-- make Appointment --> */}
-        <AppointmentUpMiniFooter/>
+        {/* <!-- news cards --> */}
+        <AppointmentUpMiniFooter />
       </Layout>
     </>
   );
 }
-
 export default News;

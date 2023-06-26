@@ -1,0 +1,34 @@
+.link-none {
+  text-decoration: none;
+}
+
+.doc-card {
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+  transition: all 0.3s ease-in-out;
+}
+
+.doc-card:hover {
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+  transform: translateY(-0.125rem);
+}
+
+.dep-icon {
+  height: 2.5rem;
+}
+
+.dep-title {
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.dep-count {
+  font-size: 0.875rem;
+  color: #555;
+}
+
+.dep-count-label {
+  font-weight: 600;
+  margin-right: 0.25rem;
+}

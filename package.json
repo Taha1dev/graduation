@@ -3,15 +3,20 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
+    "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,md}\"",
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
     "lint": "next lint"
   },
   "dependencies": {
+    "@emotion/react": "^11.11.1",
+    "@emotion/styled": "^11.11.0",
     "@fortawesome/fontawesome-free": "^6.4.0",
     "@fortawesome/free-solid-svg-icons": "^6.4.0",
     "@fortawesome/react-fontawesome": "^0.2.0",
+    "@mui/icons-material": "^5.11.16",
+    "@mui/material": "^5.13.5",
     "antd": "^5.5.0",
     "axios": "^1.4.0",
     "bootstrap": "^5.2.3",
@@ -20,10 +25,18 @@
     "ionicons": "^7.1.0",
     "joi": "^17.9.2",
     "next": "13.3.4",
-    "prettier": "^2.8.8",
+    "prop-types": "^15.8.1",
     "react": "18.2.0",
     "react-bootstrap": "^2.7.4",
     "react-dom": "18.2.0",
-    "sweetalert": "^2.1.2"
+    "react-scroll": "^1.8.9",
+    "recharts": "^2.6.2",
+    "scrollmagic": "^2.0.8",
+    "sweetalert": "^2.1.2",
+    "sweetalert2": "^11.7.12",
+    "swr": "^2.1.5"
+  },
+  "devDependencies": {
+    "prettier": "^2.8.8"
   }
 }
